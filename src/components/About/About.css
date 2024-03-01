@@ -1,0 +1,12 @@
+.main-about {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 4rem;
+  height: 93vh;
+  background-color: rgb(251, 251, 251);
+}
+
+.main-about h2 {
+  text-align: center;
+}

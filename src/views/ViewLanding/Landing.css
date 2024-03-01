@@ -1,0 +1,32 @@
+.main-landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-landing img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.landing-button {
+  padding: 1.5rem 2.5rem;
+  background-color: rgba(0, 0, 0, 0.346);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  border-radius: 1rem;
+  transition: all 0.5s;
+  position: absolute;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.landing-button:hover {
+  background-color: #0000009a;
+  color: white;
+}

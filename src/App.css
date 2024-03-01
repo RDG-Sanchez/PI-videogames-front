@@ -1,0 +1,28 @@
+.app {
+  display: flex;
+}
+
+.cards {
+  padding-left: 16rem;
+  flex: 1;
+}
+
+.creategame {
+  padding-left: 16rem;
+  flex: 1;
+}
+
+.detail {
+  padding-left: 16rem;
+  flex: 1;
+}
+
+.about {
+  padding-left: 16rem;
+  flex: 1;
+}
+
+.not-found {
+  padding-left: 16rem;
+  flex: 1;
+}

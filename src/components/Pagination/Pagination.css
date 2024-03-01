@@ -1,0 +1,28 @@
+.main-pagination {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  gap: 10rem;
+}
+
+.pagination-btn-pages {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination-btn {
+  max-width: 100vw;
+  width: 100%;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1.5px solid rgb(207, 207, 207);
+  border-radius: 0.3rem;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+}
+
+.pageActive {
+  background-color: #6c004f;
+  color: white;
+  border: 1.5px solid transparent;
+}
