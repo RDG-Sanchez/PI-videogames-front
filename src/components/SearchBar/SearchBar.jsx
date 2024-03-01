@@ -1,6 +1,9 @@
 // Import Style
 import "./SearchBar.css";
 
+// Import Icons
+import { ICONS } from "../../assets/icons/icons";
+
 // Import Librarys
 import { useDispatch } from "react-redux";
 
@@ -35,11 +38,11 @@ const SearchBar = ({ setCurrentPage }) => {
         placeholder="Search games"
       />
       <button className="searchbar-button-search" onClick={handleSearch}>
-        Search
+        {ICONS.search}
       </button>
 
       <button className="searchbar-button-reset" onClick={handleReset}>
-        Reset
+        {ICONS.reset}
       </button>
     </div>
   );

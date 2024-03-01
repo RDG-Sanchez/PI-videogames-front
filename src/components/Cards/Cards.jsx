@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Import Card, SearchBar, Loader & Pagination
-import { Card, SearchBar, Loader, Pagination } from "../components";
+import { Card, Loader, Pagination } from "../components";
 
 // Import Actions
 import {
@@ -68,7 +68,6 @@ const Cards = () => {
         <Loader />
       ) : (
         <div className="main-cards">
-          <SearchBar setCurrentPage={setCurrentPage} />
           <div className="main-filter">
             <select name="order" onChange={handleOrder}>
               <option value="" hidden>
