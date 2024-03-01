@@ -32,7 +32,7 @@ const Detail = () => {
     let key = prompt("Enter KEY:");
     try {
       const response = await axios.delete(
-        `http://localhost:3001/api/videogames/delete?id=${game.id}&key=${key}`
+        `${URL_API}/api/videogames/delete?id=${game.id}&key=${key}`
       );
       dispatch(clearStateGames());
       dispatch(getGames());

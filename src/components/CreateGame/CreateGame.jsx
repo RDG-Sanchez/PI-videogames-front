@@ -5,7 +5,6 @@ import "./CreateGame.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-
 import axios from "axios";
 
 // Import Actions
@@ -13,6 +12,7 @@ import { getGenres, getGames, clearStateGames } from "../../redux/actions";
 
 // Import Utils
 import { converters, validators } from "../../utils/utils";
+import URL_API from "../../utils/helpers";
 
 // TODO - Desabilitar el boton de "Create" cuando el formulario no sea valido.
 
@@ -47,7 +47,7 @@ const CreateGame = () => {
     try {
       const convert = converters.convertForm(form);
       const response = await axios.post(
-        "http://localhost:3001/api/videogames/create",
+        `${URL_API}/api/videogames/create`,
         convert
       );
       dispatch(clearStateGames());
