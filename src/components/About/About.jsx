@@ -2,7 +2,7 @@
 import "./About.css";
 
 // Import Image
-import videogames from "../../../../videogame.png";
+import videogames from "../../assets/About/videogame.png";
 
 const About = () => {
   return (
