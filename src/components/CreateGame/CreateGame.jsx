@@ -110,7 +110,7 @@ const CreateGame = () => {
   return (
     <div className="creategame">
       <div className="main-creategame">
-        <form className="creategame-form" action="" onSubmit={handleSubmit}>
+        <form className="creategame-form" onSubmit={handleSubmit}>
           {/* // ! Name */}
           <label htmlFor="">Name</label>
           <input

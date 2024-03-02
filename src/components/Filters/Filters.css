@@ -1,0 +1,15 @@
+.main-filter {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.main-filter select {
+  padding: 0.7rem 1.5rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(231, 231, 231);
+  text-align: center;
+}

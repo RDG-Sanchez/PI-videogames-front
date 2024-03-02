@@ -20,6 +20,7 @@ import { Loader } from "../components";
 
 // Import Utils
 import { functions } from "../../utils/utils";
+import URL_API from "../../utils/helpers";
 
 const Detail = () => {
   const { id } = useParams();
