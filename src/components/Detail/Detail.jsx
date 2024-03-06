@@ -67,6 +67,7 @@ const Detail = () => {
                 ? "Network Error"
                 : "Game Not Found 😒"}
             </h1>
+            <h2></h2>
             <button className="detail-not-found-button" onClick={handleHome}>
               Back
             </button>

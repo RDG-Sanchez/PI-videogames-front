@@ -4,6 +4,12 @@
   align-items: center;
   padding: 0 2rem;
   border-bottom: 1px solid rgb(231, 231, 231);
+  user-select: none;
+}
+
+.nav-title {
+  text-decoration: none;
+  color: black;
 }
 
 .nav-elements {
@@ -19,4 +25,9 @@
   font-weight: bold;
   border: 1px solid rgb(231, 231, 231);
   border-radius: 0.5rem;
+}
+
+.active {
+  background-color: #6c004f;
+  color: white;
 }

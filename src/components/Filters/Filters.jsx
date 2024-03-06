@@ -78,8 +78,8 @@ const Filters = ({ setUpdate, update, setCurrentPage }) => {
         <option value="" hidden>
           - Select rating -
         </option>
-        <option value="MAJOR">Major</option>
-        <option value="MINOR">Minor</option>
+        <option value="MAJOR">High</option>
+        <option value="MINOR">Low</option>
       </select>
     </div>
   );
