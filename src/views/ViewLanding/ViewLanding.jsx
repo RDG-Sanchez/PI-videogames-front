@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 const ViewLanding = () => {
   return (
     <div className="main-landing">
-      <h1 className="landing-title">GAMERANGE</h1>
       <Link className="landing-button" to="/home">
         Enter
       </Link>
