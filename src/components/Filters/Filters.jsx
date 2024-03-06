@@ -60,7 +60,9 @@ const Filters = ({ setUpdate, update, setCurrentPage }) => {
           - Select genre -
         </option>
         {genres.map((genre) => (
-          <option value={genre.name}>{genre.name}</option>
+          <option key={genre.id} value={genre.name}>
+            {genre.name}
+          </option>
         ))}
       </select>
 

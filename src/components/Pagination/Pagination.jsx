@@ -9,8 +9,6 @@ const Pagination = ({
 }) => {
   const pageNumbers = [];
 
-  console.log();
-
   for (let i = 1; i <= Math.ceil(totalGames / gamesPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -47,6 +45,7 @@ const Pagination = ({
       <div className="pagination-btn-pages">
         {pageNumbers.map((page) => (
           <button
+            key={page}
             className={`pagination-btn ${
               page === currentPage ? "pageActive" : ""
             }`}

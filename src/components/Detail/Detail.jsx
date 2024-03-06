@@ -2,7 +2,7 @@
 import "./Detail.css";
 
 // Import Librarys
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
@@ -18,7 +18,7 @@ import {
 // Import Loader
 import { Loader } from "../components";
 
-// Import Utils
+// Import Utils & Helpers
 import { functions } from "../../utils/utils";
 import URL_API from "../../utils/helpers";
 
@@ -44,6 +44,10 @@ const Detail = () => {
     }
   };
 
+  const handleHome = () => {
+    navigate("/home");
+  };
+
   useEffect(() => {
     dispatch(getGamesById(id));
     return () => {
@@ -54,8 +58,19 @@ const Detail = () => {
   return (
     <div className="detail">
       <div className="main-detail" key={game.id}>
-        {!game.name ? (
+        {Object.keys(game).length === 0 ? (
           <Loader />
+        ) : game.error ? (
+          <div className="detail-not-found">
+            <h1>
+              {game.error === "ERR_NETWORK"
+                ? "Network Error"
+                : "Game Not Found 😒"}
+            </h1>
+            <button className="detail-not-found-button" onClick={handleHome}>
+              Back
+            </button>
+          </div>
         ) : (
           <>
             <img src={game?.background_image} alt="" />

@@ -13,16 +13,16 @@ export const FILTER_BY_GENDER = "FILTER_BY_GENDER";
 export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const FILTER_BY_RATING = "FILTER_BY_RATING";
 
-// Import Helper
-import URL_API from "../utils/helpers";
-
 export const getGames = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`${URL_API}/api/videogames`);
+      const { data } = await axios.get("http://localhost:3001/api/videogames");
       return dispatch({ type: GET_GAMES, payload: data });
     } catch (error) {
-      console.log(error.message);
+      return dispatch({
+        type: GET_GAMES,
+        payload: [{ error: error.code }],
+      });
     }
   };
 };
@@ -36,11 +36,15 @@ export const clearStateGames = () => {
 export const getGamesById = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`${URL_API}/api/videogames/id/${id}`);
-
+      const { data } = await axios.get(
+        `http://localhost:3001/api/videogames/id/${id}`
+      );
       return dispatch({ type: GET_GAMES_BY_ID, payload: data });
     } catch (error) {
-      alert(error.response.data.error);
+      return dispatch({
+        type: GET_GAMES_BY_ID,
+        payload: { error: error.code },
+      });
     }
   };
 };
@@ -55,7 +59,7 @@ export const searchGames = (name) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `${URL_API}/api/videogames/search?name=${name}`
+        `http://localhost:3001/api/videogames/search?name=${name}`
       );
       return dispatch({ type: SEARCH_GAMES, payload: data });
     } catch (error) {
@@ -68,10 +72,10 @@ export const searchGames = (name) => {
 export const getGenres = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`${URL_API}/api/genres`);
+      const { data } = await axios.get("http://localhost:3001/api/genres");
       return dispatch({ type: GET_GENRES, payload: data });
     } catch (error) {
-      console.log(error.message);
+      null;
     }
   };
 };

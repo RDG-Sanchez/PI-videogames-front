@@ -48,14 +48,16 @@ export const converters = {
       description_raw,
       background_image,
       released,
-      platforms: [...filterPlatforms]
+      showPlatforms: [...filterPlatforms]
         .filter((platform) => platform !== "- Select a platforms -")
         .map((platform) => {
           return { platform: { name: platform } };
         }),
-      genres: [...filterGenres]
+      platforms: [...filterPlatforms],
+      showGenres: [...filterGenres]
         .filter((genre) => Number(genre))
         .map((genre) => Number(genre)),
+      genres: [...filterGenres],
       rating: Number(rating),
     };
   },
@@ -87,15 +89,54 @@ export const validators = {
     }
   },
   validPlatforms: (platforms) => {
+    const validPlatforms = [
+      "PC",
+      "macOS",
+      "Linux",
+      "PlayStation 5",
+      "PlayStation 4",
+      "PlayStation 3",
+      "PlayStation 2",
+      "Xbox Series X/S",
+      "Xbox One",
+      "Xbox 360",
+      "Xbox",
+      "Nintendo Switch",
+      "Nintendo 3DS",
+      "NeoGeo",
+      "NES",
+      "SNES",
+      "Wii",
+      "GameCube",
+      "PSP",
+      "PS Vita",
+      "WEB",
+    ];
+
+    const invalidPlatforms = platforms.filter(
+      (platform) => !validPlatforms.includes(platform)
+    );
+
     if (platforms.length === 0) {
       return "Enter a platforms";
+    } else if (invalidPlatforms.length > 0) {
+      return "You have entered platforms that are not valid";
     } else {
       return "";
     }
   },
   validGenres: (genres) => {
+    const validGenres = [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+    ];
+
+    const invalidGenres = genres
+      .map((e) => Number(e))
+      .filter((e) => !validGenres.includes(e));
     if (genres.length === 0) {
       return "Enter a genres";
+    } else if (invalidGenres.length > 0) {
+      return "You have entered genres that are not valid";
     } else {
       return "";
     }

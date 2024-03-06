@@ -4,12 +4,20 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
-.main-landing img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.landing-title {
+  position: absolute;
+  font-size: 10rem;
+  font-weight: bold;
+  color: white;
+  top: 0;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.346);
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .landing-button {

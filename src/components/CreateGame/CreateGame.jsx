@@ -10,11 +10,9 @@ import axios from "axios";
 // Import Actions
 import { getGenres, getGames, clearStateGames } from "../../redux/actions";
 
-// Import Utils
+// Import Utils & Helpers
 import { converters, validators } from "../../utils/utils";
 import URL_API from "../../utils/helpers";
-
-// TODO - Desabilitar el boton de "Create" cuando el formulario no sea valido.
 
 const CreateGame = () => {
   const genres = useSelector((state) => state.genres);
@@ -43,6 +41,11 @@ const CreateGame = () => {
 
   const [formValid, setFormValid] = useState(false);
 
+  const [htmlMessage, setHtmlMessage] = useState({
+    class: "hidden",
+    message: "",
+  });
+
   const sendGame = async () => {
     try {
       const convert = converters.convertForm(form);
@@ -52,10 +55,18 @@ const CreateGame = () => {
       );
       dispatch(clearStateGames());
       dispatch(getGames());
-      navigate("/home");
-      alert("Videogame created succesfully");
+      setHtmlMessage({
+        class: "successMes",
+        message: "Videogame created succesfully",
+      });
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
     } catch (error) {
-      alert(error.response.data.error);
+      setHtmlMessage({
+        class: "errorMes",
+        message: error.response.data.error,
+      });
     }
   };
 
@@ -64,7 +75,6 @@ const CreateGame = () => {
       setForm({ ...form, genres: [...form.genres, e.target.value] });
     } else if (e.target.name === "platforms") {
       setForm({ ...form, platforms: [...form.platforms, e.target.value] });
-      console.log(e.target.value);
     } else {
       setForm({
         ...form,
@@ -96,7 +106,10 @@ const CreateGame = () => {
       errors.release ||
       errors.rating
     ) {
-      alert("Check the form");
+      setHtmlMessage({
+        class: "errorMes",
+        message: "Check the form",
+      });
     } else {
       setFormValid(true);
       sendGame();
@@ -179,6 +192,7 @@ const CreateGame = () => {
             <option value="NeoGeo">NeoGeo</option>
             <option value="NES">NES</option>
             <option value="SNES">SNES</option>
+            <option value="Wii">Wii</option>
             <option value="GameCube">GameCube</option>
             <option value="PSP">PSP</option>
             <option value="PS Vita">PS Vita</option>
@@ -188,7 +202,7 @@ const CreateGame = () => {
           <p>
             {converters
               .convertForm(form)
-              .platforms.map((platform) => platform.platform.name)
+              .showPlatforms.map((platform) => platform.platform.name)
               .join(", ")}
           </p>
 
@@ -218,7 +232,9 @@ const CreateGame = () => {
               - Select a genres -
             </option>
             {genres.map((genre) => (
-              <option value={genre.id}>{genre.name}</option>
+              <option key={genre.id} value={genre.id}>
+                {genre.name}
+              </option>
             ))}
           </select>
           <p className={!errors.genres.length > 0 ? "valid" : "error"}>
@@ -230,7 +246,7 @@ const CreateGame = () => {
           <p>
             {genres
               .filter((genre) =>
-                converters.convertForm(form).genres.includes(genre.id)
+                converters.convertForm(form).showGenres.includes(genre.id)
               )
               .map((genre) => genre.name)
               .join(", ")}
@@ -303,6 +319,7 @@ const CreateGame = () => {
             Error: {errors.rating}
           </p>
           <button disabled={!formValid ? "on" : null}>Create</button>
+          <b className={htmlMessage.class}>{htmlMessage.message}</b>
         </form>
       </div>
     </div>
