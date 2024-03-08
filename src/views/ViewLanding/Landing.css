@@ -1,40 +1,70 @@
-.main-landing {
+.landing {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100vh;
+}
+
+.main-landing {
+  display: flex;
+  width: 50%;
+  height: 50%;
   overflow: hidden;
 }
 
-.landing-title {
-  position: absolute;
-  font-size: 10rem;
-  font-weight: bold;
-  color: white;
-  top: 0;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.346);
-  padding: 2rem;
+.landing-div-1 {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   border-radius: 1rem;
 }
 
-.landing-button {
-  padding: 1.5rem 2.5rem;
-  background-color: rgba(0, 0, 0, 0.346);
+.landing-div-1 img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.landing-overlay {
+  position: absolute;
+  text-align: center;
+}
+
+.landing-overlay h1 {
+  font-size: 3rem;
   color: white;
-  font-weight: bold;
-  font-size: 1.5rem;
+}
+
+.landing-overlay a {
+  padding: 1rem;
+  border-radius: 10rem;
   text-decoration: none;
-  border-radius: 1rem;
-  transition: all 0.5s;
-  position: absolute;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  color: white;
+  font-weight: bold;
 }
 
-.landing-button:hover {
-  background-color: #0000009a;
-  color: white;
+.landing-overlay svg {
+  width: 2rem;
+  padding: 1rem;
+  background-color: white;
+  color: black;
+  border-radius: 20rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-landing {
+    width: 75%;
+  }
+
+  .landing-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .landing-overlay svg {
+    width: 1.5rem;
+  }
 }

@@ -9,14 +9,3 @@
 .main-not-found h1 {
   font-size: 3rem;
 }
-
-.not-fount-back-button {
-  padding: 1rem;
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  border: 1px solid rgb(231, 231, 231);
-  border-radius: 0.5rem;
-  background-color: transparent;
-  cursor: pointer;
-}

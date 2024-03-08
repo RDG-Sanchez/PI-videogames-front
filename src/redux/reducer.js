@@ -64,13 +64,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case FILTER_BY_GENDER:
       const genre = payload;
-      const filteredGames = state.allGames.filter((game) =>
+      const filteredGames = state.games.filter((game) =>
         game.genres.map((genre) => genre.name).includes(genre)
       );
 
       if (filteredGames.length === 0) {
-        alert("Nothing here :S");
-        return { ...state, games: allGames };
+        alert("Nothing here 🤔");
+        return { ...state, games: state.allGames };
       } else {
         return { ...state, games: filteredGames };
       }
@@ -78,17 +78,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case FILTER_BY_ORIGIN:
       const origin = payload;
       if (origin === "DB") {
-        const originGamesDB = state.allGames.filter((game) => game.database);
+        const originGamesDB = state.games.filter((game) => game.database);
         if (originGamesDB.length === 0) {
-          alert("Nothing here :S");
+          alert("Nothing here 🤔");
           return { ...state, games: state.allGames };
         } else {
           return { ...state, games: originGamesDB };
         }
       } else if (origin === "API") {
-        const originGamesAPI = state.allGames.filter((game) => !game.database);
+        const originGamesAPI = state.games.filter((game) => !game.database);
         if (originGamesAPI.length === 0) {
-          alert("Nothing here :S");
+          alert("Nothing here 🤔");
           return { ...state, games: state.allGames };
         } else {
           return { ...state, games: originGamesAPI };

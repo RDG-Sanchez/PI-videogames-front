@@ -3,34 +3,19 @@ import "./NavBar.css";
 
 // Import Librarys
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
-  const { pathname } = useLocation();
   return (
     <nav className="main-nav">
-      <Link className="nav-title" to="/home">
-        <h1>GAMERANGE</h1>
-      </Link>
+      <h1>GAMERANGE</h1>
       <div className="nav-elements">
-        <Link
-          className={pathname === "/home" ? "nav-button active" : "nav-button"}
-          to="/home"
-        >
+        <Link className="nav-button btn-home" to="/home">
           Home
         </Link>
-        <Link
-          className={
-            pathname === "/create" ? "nav-button active" : "nav-button"
-          }
-          to="/create"
-        >
+        <Link className="nav-button btn-create" to="/create">
           Create
         </Link>
-        <Link
-          className={pathname === "/about" ? "nav-button active" : "nav-button"}
-          to="/about"
-        >
+        <Link className="nav-button btn-about" to="/about">
           About
         </Link>
       </div>

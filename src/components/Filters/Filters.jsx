@@ -47,14 +47,6 @@ const Filters = ({ setUpdate, update, setCurrentPage }) => {
   }, []);
   return (
     <div className="main-filter">
-      <select name="order" onChange={handleFilter}>
-        <option value="" hidden>
-          - Select order -
-        </option>
-        <option value="ASC">A-Z</option>
-        <option value="DES">Z-A</option>
-      </select>
-
       <select name="gender" onChange={handleFilter}>
         <option value="" hidden>
           - Select genre -
@@ -64,6 +56,14 @@ const Filters = ({ setUpdate, update, setCurrentPage }) => {
             {genre.name}
           </option>
         ))}
+      </select>
+
+      <select name="order" onChange={handleFilter}>
+        <option value="" hidden>
+          - Select order -
+        </option>
+        <option value="ASC">A-Z</option>
+        <option value="DES">Z-A</option>
       </select>
 
       <select name="origin" onChange={handleFilter}>
@@ -78,8 +78,8 @@ const Filters = ({ setUpdate, update, setCurrentPage }) => {
         <option value="" hidden>
           - Select rating -
         </option>
-        <option value="MAJOR">High</option>
-        <option value="MINOR">Low</option>
+        <option value="MAJOR">Major</option>
+        <option value="MINOR">Minor</option>
       </select>
     </div>
   );
