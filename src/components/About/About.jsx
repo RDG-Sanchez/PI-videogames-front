@@ -14,7 +14,8 @@ const About = () => {
           quantity of necessary data.
         </h2>
         <img src={videogames} alt="" />
-        Developed by: <b>@RDG-Sanchez</b>
+        Developed by:
+        <b>@RDG-Sanchez</b>
       </div>
     </div>
   );

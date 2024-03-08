@@ -3,7 +3,7 @@
   align-items: center;
   flex-direction: column;
   padding: 2rem 4rem;
-  height: 93vh;
+  overflow: hidden;
 }
 
 .main-about h2 {

@@ -97,10 +97,10 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case FILTER_BY_RATING:
       const rating = payload;
-      if (rating === "MINOR") {
+      if (rating === "LOW") {
         const ratingGamesMin = state.games.sort((a, b) => a.rating - b.rating);
         return { ...state, games: ratingGamesMin };
-      } else if (rating === "MAJOR") {
+      } else if (rating === "HIGH") {
         const ratingGamesMaj = state.games.sort((a, b) => b.rating - a.rating);
         return { ...state, games: ratingGamesMaj };
       }
