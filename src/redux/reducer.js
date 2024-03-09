@@ -7,7 +7,7 @@ import {
   SEARCH_GAMES,
   GET_GENRES,
   ORDER_GAMES,
-  FILTER_BY_GENDER,
+  FILTER_BY_GENRES,
   FILTER_BY_ORIGIN,
   FILTER_BY_RATING,
 } from "./actions";
@@ -17,6 +17,7 @@ const initialState = {
   game: {},
   games: [],
   genres: [],
+  origin: [],
   allGames: [],
 };
 
@@ -55,36 +56,50 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       }
 
-    case FILTER_BY_GENDER:
+    case FILTER_BY_GENRES:
       const genre = payload;
-      const filteredGames = state.games.filter((game) =>
-        game.genres.map((genre) => genre.name).includes(genre)
-      );
 
-      if (filteredGames.length === 0) {
-        alert("Nothing here 🤔");
-        return { ...state, games: state.allGames };
-      } else {
-        return { ...state, games: filteredGames };
+      if (state.origin.length === 0) {
+        const filteredGames = state.allGames.filter((game) =>
+          game.genres.map((genre) => genre.name).includes(genre)
+        );
+
+        if (filteredGames.length === 0) {
+          alert("Nothing here 👀");
+          return { ...state, games: state.allGames };
+        } else {
+          return { ...state, games: filteredGames };
+        }
+      } else if (state.origin.length > 0) {
+        const filteredGames = state.origin.filter((game) =>
+          game.genres.map((genre) => genre.name).includes(genre)
+        );
+
+        if (filteredGames.length === 0) {
+          alert("Nothing here 👀");
+          return { ...state, games: state.origin };
+        } else {
+          return { ...state, games: filteredGames };
+        }
       }
 
     case FILTER_BY_ORIGIN:
       const origin = payload;
       if (origin === "DB") {
-        const originGamesDB = state.games.filter((game) => game.database);
+        const originGamesDB = state.allGames.filter((game) => game.database);
         if (originGamesDB.length === 0) {
           alert("Nothing here 🤔");
           return { ...state, games: state.allGames };
         } else {
-          return { ...state, games: originGamesDB };
+          return { ...state, games: originGamesDB, origin: originGamesDB };
         }
       } else if (origin === "API") {
-        const originGamesAPI = state.games.filter((game) => !game.database);
+        const originGamesAPI = state.allGames.filter((game) => !game.database);
         if (originGamesAPI.length === 0) {
           alert("Nothing here 🤔");
           return { ...state, games: state.allGames };
         } else {
-          return { ...state, games: originGamesAPI };
+          return { ...state, games: originGamesAPI, origin: originGamesAPI };
         }
       }
 

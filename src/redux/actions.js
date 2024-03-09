@@ -12,7 +12,7 @@ export const CLEAR_STATE_GAME = "CLEAR_STATE_GAME";
 export const SEARCH_GAMES = "SEARCH_GAMES";
 export const GET_GENRES = "GET_GENRES";
 export const ORDER_GAMES = "ORDER_GAMES";
-export const FILTER_BY_GENDER = "FILTER_BY_GENDER";
+export const FILTER_BY_GENRES = "FILTER_BY_GENRES";
 export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const FILTER_BY_RATING = "FILTER_BY_RATING";
 
@@ -89,7 +89,7 @@ export const orderGames = (order) => {
 
 export const filterByGender = (gender) => {
   return (dispatch) => {
-    return dispatch({ type: FILTER_BY_GENDER, payload: gender });
+    return dispatch({ type: FILTER_BY_GENRES, payload: gender });
   };
 };
 
