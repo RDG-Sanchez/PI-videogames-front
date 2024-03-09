@@ -64,7 +64,7 @@ export const searchGames = (name) => {
       );
       return dispatch({ type: SEARCH_GAMES, payload: data });
     } catch (error) {
-      alert("No se han encontrado videojuegos");
+      alert("Games not found");
       return dispatch(getGames());
     }
   };

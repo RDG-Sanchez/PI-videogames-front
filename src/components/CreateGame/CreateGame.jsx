@@ -117,7 +117,11 @@ const CreateGame = () => {
   };
 
   useEffect(() => {
-    dispatch(getGenres());
+    if (genres.length > 0) {
+      null;
+    } else {
+      dispatch(getGenres());
+    }
   }, []);
 
   return (

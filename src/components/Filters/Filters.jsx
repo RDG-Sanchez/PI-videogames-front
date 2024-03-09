@@ -1,12 +1,11 @@
 // Import Style
 import "./Filters.css";
 
-// Import Icons
-import { ICONS } from "../../assets/icons/icons";
-
 // Import Hooks & Librarys
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+
+// Import Actions
 import {
   getGenres,
   orderGames,
@@ -41,10 +40,12 @@ const Filters = ({ setUpdate, update, setCurrentPage }) => {
 
   useEffect(() => {
     if (genres.length > 0) {
+      null;
     } else {
       dispatch(getGenres());
     }
   }, []);
+
   return (
     <div className="main-filter">
       <select name="gender" onChange={handleFilter}>

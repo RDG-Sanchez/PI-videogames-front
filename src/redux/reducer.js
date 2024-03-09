@@ -36,11 +36,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, game: payload };
 
     case SEARCH_GAMES:
-      return {
-        ...state,
-        games: payload,
-        allGames: payload,
-      };
+      return { ...state, games: payload, allGames: payload };
 
     case GET_GENRES:
       return { ...state, genres: payload };
@@ -51,10 +47,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         const sortGamesAZ = state.games.sort((a, b) =>
           a.name.localeCompare(b.name)
         );
-        return {
-          ...state,
-          games: sortGamesAZ,
-        };
+        return { ...state, games: sortGamesAZ };
       } else if (order === "DES") {
         return {
           ...state,
