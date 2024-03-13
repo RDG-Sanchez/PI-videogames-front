@@ -5,6 +5,7 @@ import {
   GET_GAMES_BY_ID,
   CLEAR_STATE_GAME,
   SEARCH_GAMES,
+  CLEAR_STATE_ORIGIN,
   GET_GENRES,
   ORDER_GAMES,
   FILTER_BY_GENRES,
@@ -38,6 +39,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case SEARCH_GAMES:
       return { ...state, games: payload, allGames: payload };
+
+    case CLEAR_STATE_ORIGIN:
+      return { ...state, games: payload, allGames: payload, origin: payload };
 
     case GET_GENRES:
       return { ...state, genres: payload };

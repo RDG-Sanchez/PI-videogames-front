@@ -10,6 +10,7 @@ export const CLEAR_STATE_GAMES = "CLEAR_STATE_GAMES";
 export const GET_GAMES_BY_ID = "GET_GAMES_BY_ID";
 export const CLEAR_STATE_GAME = "CLEAR_STATE_GAME";
 export const SEARCH_GAMES = "SEARCH_GAMES";
+export const CLEAR_STATE_ORIGIN = "CLEAR_STATE_ORIGIN";
 export const GET_GENRES = "GET_GENRES";
 export const ORDER_GAMES = "ORDER_GAMES";
 export const FILTER_BY_GENRES = "FILTER_BY_GENRES";
@@ -67,6 +68,12 @@ export const searchGames = (name) => {
       alert("Games not found");
       return dispatch(getGames());
     }
+  };
+};
+
+export const clearStateOrigin = () => {
+  return (dispatch) => {
+    return dispatch({ type: CLEAR_STATE_ORIGIN, payload: [] });
   };
 };
 

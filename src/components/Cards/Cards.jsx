@@ -19,7 +19,6 @@ const Cards = () => {
   const [update, setUpdate] = useState(true);
 
   const totalGames = games.length;
-
   const lastIndex = currentPage * gamesPerPage;
   const firstIndex = lastIndex - gamesPerPage;
 

@@ -8,7 +8,12 @@ import { ICONS } from "../../assets/icons/icons";
 import { useDispatch } from "react-redux";
 
 // Import Actions
-import { getGames, searchGames, clearStateGames } from "../../redux/actions";
+import {
+  getGames,
+  searchGames,
+  clearStateGames,
+  clearStateOrigin,
+} from "../../redux/actions";
 
 const SearchBar = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
@@ -26,6 +31,7 @@ const SearchBar = ({ setCurrentPage }) => {
 
   const handleReset = () => {
     dispatch(clearStateGames());
+    dispatch(clearStateOrigin());
     dispatch(getGames());
     setCurrentPage(1);
   };

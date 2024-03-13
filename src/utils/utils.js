@@ -45,8 +45,8 @@ export const converters = {
     const filterPlatforms = new Set(platforms);
     return {
       name: name.trim(),
-      description_raw,
-      background_image,
+      description_raw: description_raw.trim(),
+      background_image: background_image.trim(),
       released,
       showPlatforms: [...filterPlatforms]
         .filter((platform) => platform !== "- Select a platforms -")
@@ -71,6 +71,8 @@ export const validators = {
       return "Enter a name";
     } else if (!regex.validNAME.test(name)) {
       return "Cannot contain special characters";
+    } else if (name.trim().length > 35) {
+      return "You have exceeded 35 characters";
     } else {
       return "";
     }
@@ -80,9 +82,9 @@ export const validators = {
       return "Enter a description";
     } else if (description.trim() === "") {
       return "Enter a description";
-    } else if (description.length < 30) {
+    } else if (description.trim().length < 30) {
       return "At least you must enter 30 characters";
-    } else if (description.length > 2500) {
+    } else if (description.trim().length > 2500) {
       return "You have exceeded 2500 characters";
     } else {
       return "";
@@ -146,6 +148,8 @@ export const validators = {
       return "Enter a image";
     } else if (!regex.validURL.test(image)) {
       return "Enter a valid URL";
+    } else if (image.trim().length > 512) {
+      return "You have exceeded 512 characters";
     } else {
       return "";
     }
